@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Moov;
 
 namespace PlayWithMoov
@@ -15,6 +16,7 @@ namespace PlayWithMoov
         private static void Go()
         {
             var device = new Device();
+            device.GetType().GetField("deviceName", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(device, "CyanMoov");
             device.OnDeviceDiscovered += (sender, eventArgs) =>
             {
                 Console.WriteLine("Discovered: " + eventArgs.Discovered + " C:" + device.IsConnected + ";R:" + device.IsRunning);
