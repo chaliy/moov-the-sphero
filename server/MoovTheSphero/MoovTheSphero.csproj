@@ -7,7 +7,7 @@
     <ProjectGuid>{8D658C12-26C2-47BB-BB3F-3357AFD8AD0F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MoovTheSphero</RootNamespace>
+    <RootNamespace>Eleks.MoovTheSphero</RootNamespace>
     <AssemblyName>mts</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -33,8 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Fleck, Version=0.13.0.57, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fleck.0.13.0.57\lib\net40\Fleck.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Moov, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Moov.1.0.1\lib\Moov.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -62,8 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Moov\MoovService.cs" />
+    <Compile Include="Utils\EnumerableExtensions.cs" />
+    <Compile Include="Moov\MoovManager.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Server\ServerManager.cs" />
+    <Compile Include="Utils\Serialization.cs" />
+    <Compile Include="Utils\Tracer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

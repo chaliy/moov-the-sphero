@@ -3,14 +3,14 @@ using System.Reactive.Subjects;
 using System.Reflection;
 using Moov;
 
-namespace MoovTheSphero.Moov
+namespace Eleks.MoovTheSphero.Moov
 {
-    public class MoovService
+    public class MoovManager
     {
         private readonly string _name;
         readonly Subject<SensorsDataEventArgs> _sensors = new Subject<SensorsDataEventArgs>();
 
-        public MoovService(string name = "Moov")
+        public MoovManager(string name = "Moov")
         {
             _name = name;
         }
