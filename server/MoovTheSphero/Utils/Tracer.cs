@@ -6,8 +6,13 @@ namespace Eleks.MoovTheSphero.Utils
     {
         public static void Error(Exception ex)
         {
+            Error(ex.ToString());
+        }
+
+        public static void Error(string message)
+        {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(ex);
+            Console.WriteLine(message);
             Console.ResetColor();
         }
 
