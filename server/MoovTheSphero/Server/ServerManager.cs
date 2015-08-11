@@ -62,7 +62,7 @@ namespace Eleks.MoovTheSphero.Server
 
         public void Send(object content)
         {
-            Tracer.Info("Send: " + content.GetType().Name + " > " + content);
+            //Tracer.Info("Send: " + content.GetType().Name + " > " + content);
             var payload = Serialization.SerializeWithEnvelope(content);
             SendInternal(payload);
         }

@@ -1,5 +1,5 @@
 {
-  "node": true,
+  "node": true,  
   "browser": true,
   "esnext": true,
   "bitwise": true,
@@ -24,4 +24,3 @@
     "React": true
   }
 }
-

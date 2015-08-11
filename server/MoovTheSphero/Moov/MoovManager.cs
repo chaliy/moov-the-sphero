@@ -35,10 +35,10 @@ namespace Eleks.MoovTheSphero.Moov
 
             device.OnDeviceDiscovered += (sender, eventArgs) =>
             {
-                Console.WriteLine("Discovered: " + eventArgs.Discovered + " C:" + device.IsConnected + ";R:" + device.IsRunning);
+                Console.WriteLine($"Discovered: {eventArgs.Discovered} C:{device.IsConnected};R:{device.IsRunning}");
                 // Enable Girocope
                 device.SetSensorsConf((byte)GyroscopeAxis.XYZ);
-            };
+            };            
 
             device.OnMotiStat += (sender, eventArgs) => Console.WriteLine("OnMotiStat");
             device.OnSensorsDataAvailable += (sender, eventArgs) =>

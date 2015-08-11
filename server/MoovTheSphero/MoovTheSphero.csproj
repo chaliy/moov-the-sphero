@@ -70,6 +70,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gestures\Gesture.cs" />
+    <Compile Include="Gestures\GestureDetector.cs" />
+    <Compile Include="Gestures\GestureType.cs" />
+    <Compile Include="Utils\IntegerExtensions.cs" />
     <Compile Include="Utils\EnumerableExtensions.cs" />
     <Compile Include="Moov\MoovManager.cs" />
     <Compile Include="Program.cs" />
