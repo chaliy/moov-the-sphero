@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reactive.Subjects;
 using System.Reflection;
+using Eleks.MoovTheSphero.Utils;
 using Moov;
 
 namespace Eleks.MoovTheSphero.Moov
@@ -9,6 +10,7 @@ namespace Eleks.MoovTheSphero.Moov
     {
         private readonly string _name;
         readonly Subject<SensorsDataEventArgs> _sensors = new Subject<SensorsDataEventArgs>();
+        readonly Subject<SimpleKeyServiceEventArgs> _keys = new Subject<SimpleKeyServiceEventArgs>();
 
         public MoovManager(string name = "Moov")
         {
@@ -27,6 +29,7 @@ namespace Eleks.MoovTheSphero.Moov
         }
 
         public IObservable<SensorsDataEventArgs> Sensors => _sensors;
+        public IObservable<SimpleKeyServiceEventArgs> Keys => _keys;
 
         public void Start()
         {
@@ -41,11 +44,12 @@ namespace Eleks.MoovTheSphero.Moov
             };            
 
             device.OnMotiStat += (sender, eventArgs) => Console.WriteLine("OnMotiStat");
-            device.OnSensorsDataAvailable += (sender, eventArgs) =>
-            {                
-                _sensors.OnNext(eventArgs);
+            device.OnSensorsDataAvailable += (sender, eventArgs) => _sensors.OnNext(eventArgs);            
+            device.OnKeyEvent += (sender, eventArgs) =>
+            {
+                //Tracer.Trace($"Key: {eventArgs.KeyState}");
+                _keys.OnNext(eventArgs);
             };
-            device.OnKeyEvent += (sender, eventArgs) => Console.WriteLine("OnKeyEvent");
 
             device.Discover();
         }

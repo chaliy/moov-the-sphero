@@ -15,14 +15,23 @@ namespace Eleks.MoovTheSphero
 
             var moov = new MoovManager("CyanMoov");
 
-            var gestures = new GestureDetector(moov.Sensors);
-            gestures.Gestures.Subscribe(Console.WriteLine);
+            //var gestures = new GestureDetector(moov.Sensors);
+            //gestures.Gestures.Subscribe(Console.WriteLine);
 
             moov.Sensors.Subscribe(server.Send);
             moov.Start();
 
-            //var sphero = new SpheroManager();
-            //sphero.Start();
+            var sphero = new SpheroManager();
+            sphero.Start().Wait(TimeSpan.FromSeconds(30));
+
+            moov.Keys.Subscribe(e =>
+            {
+                if (e.KeyState == 1)
+                {
+                    Console.WriteLine($"Spin!");
+                    sphero.Spin();
+                }                
+            });
 
             Console.ReadLine();
         }
