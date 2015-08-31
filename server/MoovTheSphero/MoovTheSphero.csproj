@@ -37,6 +37,10 @@
       <HintPath>..\packages\Fleck.0.13.0.57\lib\net40\Fleck.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MathNet.Numerics, Version=3.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.3.7.0\lib\net40\MathNet.Numerics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Moov, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Moov.1.0.1\lib\Moov.dll</HintPath>
       <Private>True</Private>
@@ -50,6 +54,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Rx-Core.2.2.5\lib\net45\System.Reactive.Core.dll</HintPath>
       <Private>True</Private>
@@ -73,13 +78,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Csv\SensorWriter.cs" />
     <Compile Include="Gestures\Gesture.cs" />
-    <Compile Include="Gestures\MoveDetector.cs" />
+    <Compile Include="Gestures\Vendor\MahonyAHRS.cs" />
+    <Compile Include="Gestures\MotionDetector.cs" />
     <Compile Include="Gestures\GestureDetector.cs" />
     <Compile Include="Gestures\GestureType.cs" />
-    <Compile Include="Gestures\Move.cs" />
+    <Compile Include="Gestures\MotionEvent.cs" />
+    <Compile Include="Moov\MoovEvent.cs" />
     <Compile Include="Sphero\SpheroManager.cs" />
-    <Compile Include="Utils\IntegerExtensions.cs" />
+    <Compile Include="Utils\NumericsExtensions.cs" />
     <Compile Include="Utils\EnumerableExtensions.cs" />
     <Compile Include="Moov\MoovManager.cs" />
     <Compile Include="Program.cs" />

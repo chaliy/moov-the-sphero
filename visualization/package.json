@@ -1,5 +1,5 @@
 {
-  "name": "vis",
+  "name": "visualization",
   "version": "0.0.0",
   "description": "",
   "repository": "",
@@ -14,14 +14,14 @@
     "dev-open": "start http://localhost:8000/webpack-dev-server/"
   },
   "dependencies": {
-    "chart.js": "^1.0.2",
     "d3": "^3.5.6",
     "normalize.css": "~3.0.3",
     "react": "0.13.x",
     "react-d3-components": "^0.4.8",
     "react-router": "0.13.x",
     "reflux": "^0.2.12",
-    "rws": "0.0.1"
+    "rws": "0.0.1",
+    "vis": "^4.7.0"
   },
   "devDependencies": {
     "babel": "^5.0.0",

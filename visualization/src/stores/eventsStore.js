@@ -10,12 +10,10 @@ var EVENTS_NUM = 25;
 var events = [];
 for(var i = 0; i < EVENTS_NUM; i++){
   events.push({
-    gyroscopeX: 0,
-    gyroscopeY: 0,
-    gyroscopeZ: 0,
-    accelerationX: 0,
-    accelerationY: 0,
-    accelerationZ: 0
+    rawGyroscope: {x: 0, y: 0, z: 0 },
+    rawAccelerometer: {x: 0, y: 0, z: 0 },
+    acceleration: {x: 0, y: 0, z: 0 },
+    velocity: {x: 0, y: 0, z: 0 }
   });
 }
 
@@ -29,14 +27,19 @@ module.exports = Reflux.createStore({
       if (typeof event.data === 'string') {
           var data = JSON.parse(event.data);
 
-          events.push(data.content);
-          if (events.length > 25){
-            events.shift();
-          }
+          if (data.type === 'MotionEvent'){
 
-          self.trigger({
-            events: events
-          });
+            events.push(data.content);
+            if (events.length > EVENTS_NUM){
+              events.shift();
+            }
+
+            self.trigger({
+              events: events
+            });
+          } else {
+            console.warn('Unsupported type:', data.type);
+          }
       }
       else if (event.data instanceof Blob) {
           console.log('binary');

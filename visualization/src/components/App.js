@@ -14,7 +14,10 @@ var App = React.createClass({
     return (
       <div>
         <header>
-          <Link to='visualization'>Visualizaiton</Link>
+          <ul>
+            <li><Link to='events'>Events</Link></li>
+            <li><Link to='position'>Position</Link></li>
+          </ul>
         </header>
         <div className='container'>
           <RouteHandler />

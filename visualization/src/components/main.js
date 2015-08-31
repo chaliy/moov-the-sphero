@@ -10,11 +10,13 @@ var Route = Router.Route;
 
 
 var App = require('./App');
-var Visualization = require('./Visualization');
+var Events = require('./Events');
+var Position = require('./Position');
 
 var Routes = (
   <Route handler={App} path='/'>
-    <Route name='visualization' path='visualization' handler={Visualization}/>
+    <Route name='events' path='events' handler={Events}/>
+    <Route name='position' path='position' handler={Position}/>
   </Route>
 );
 
